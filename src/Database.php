@@ -90,5 +90,5 @@ class Database
     /**
      * @throws Exception
      */
-    private function __wakeup() {throw new Exception("Cannot unserialize a singleton.");}
+    public function __wakeup() {throw new Exception("Cannot unserialize a singleton.");}
 }

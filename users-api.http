@@ -1,0 +1,54 @@
+### Variáveis de Ambiente para o HTTP Client
+# Define a URL base da nossa API para não precisarmos repeti-la.
+@baseUrl = http://localhost:8000
+
+#==================================================
+# CRUD DE USUÁRIOS
+#==================================================
+
+### 1. Listar todos os usuários (GET )
+# @name list-users
+GET {{baseUrl}}/users
+Accept: application/json
+
+###
+### 2. Registrar um novo usuário (POST)
+# @name register-user
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "name": "Usuário do PhpStorm",
+  "email": "phpstorm@email.com",
+  "password": "senhaSuperSegura123"
+}
+
+###
+### 3. Fazer Login (POST)
+# @name login-user
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "phpstorm@email.com",
+  "password": "senhaSuperSegura123"
+}
+
+###
+### 4. Atualizar o nome de um usuário (PATCH)
+# @name update-user
+# ATENÇÃO: Altere o '1' na URL para o ID do usuário que você quer editar.
+PATCH {{baseUrl}}/users/1
+Content-Type: application/json
+
+{
+  "name": "Nome Atualizado via PhpStorm"
+}
+
+###
+### 5. Deletar um usuário (DELETE)
+# @name delete-user
+# ATENÇÃO: Altere o '1' na URL para o ID do usuário que você quer deletar.
+DELETE {{baseUrl}}/users/1
+Accept: application/json
+
